@@ -4,8 +4,8 @@
 Refactorizar un formulario de contacto web construido con malas prácticas iniciales (uso de tablas, estilos inline, bajo contraste y medidas fijas), mejorando su estructura semántica con HTML5, adaptabilidad responsiva con CSS y validación dinámica en tiempo real mediante JavaScript.
 
 ## Tecnologías utilizadas
-* **HTML5:** Estructura semántica, etiquetas form, label e inputs modernos con validación nativa[cite: 10].
-* **CSS3:** Diseño responsivo (Media Queries), unidades relativas y control de contraste visual[cite: 10].
+* **HTML5:** Estructura semántica, etiquetas form, label e inputs modernos con validación nativa.
+* **CSS3:** Diseño responsivo (Media Queries), unidades relativas y control de contraste visual.
 * **JavaScript:** Manejo de eventos y validación dinámica de campos en tiempo real.
 
 ## Instrucciones para ejecutar el proyecto
@@ -14,10 +14,10 @@ Refactorizar un formulario de contacto web construido con malas prácticas inici
 3. Abre el archivo principal `formulario.html` directamente en tu navegador web preferido para probarlo localmente.
 
 ## Autor
-* **Nombre:** Arturo Sebastián Pérez Zapata[cite: 7]
-* **Matrícula:** 2142942[cite: 7]
-* **Carrera:** ITS[cite: 7]
-* **Facultad:** FIME UANL (Laboratorio de Programación Web - Grupo 008)[cite: 7, 10]
+* **Nombre:** Arturo Sebastián Pérez Zapata.
+* **Matrícula:** 2142942.
+* **Carrera:** ITS.
+* **Facultad:** FIME UANL (Laboratorio de Programación Web - Grupo 008)
 
 ## Enlaces
 * [Repositorio en GitHub](https://github.com/arsepeza-oss/Programaci-n-Web-Lab-Pr-ctica-5.git) 
