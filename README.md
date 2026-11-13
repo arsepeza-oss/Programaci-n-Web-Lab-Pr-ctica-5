@@ -23,3 +23,6 @@ Refactorizar un formulario de contacto web construido con malas prácticas inici
 * [Repositorio en GitHub](https://github.com/arsepeza-oss/Programaci-n-Web-Lab-Pr-ctica-5.git) 
 
 * [Proyecto publicado (GitHub Pages)](https://arsepeza-oss.github.io/Programaci-n-Web-Lab-Pr-ctica-5/) 
+=======
+# Programaci-n-Web-Lab-Pr-ctica-5
+>>>>>>> ae4d82f1e1561aab3008cf689ae62ed65bfe4d2d
