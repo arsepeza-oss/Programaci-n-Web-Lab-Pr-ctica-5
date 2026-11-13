@@ -1,17 +1,17 @@
-# Práctica 5 (Basado en la Práctica 2): El formulario que nadie puede llenar
+# Práctica 2: El formulario que nadie puede llenar
 
 ## Propósito
 Refactorizar un formulario de contacto web construido con malas prácticas iniciales (uso de tablas, estilos inline, bajo contraste y medidas fijas), mejorando su estructura semántica con HTML5, adaptabilidad responsiva con CSS y validación dinámica en tiempo real mediante JavaScript.
 
 ## Tecnologías utilizadas
 * **HTML5:** Estructura semántica, etiquetas form, label e inputs modernos con validación nativa[cite: 10].
-* **CSS3:** Diseño responsivo (Mobile First / Media Queries), unidades relativas y control de contraste[cite: 10].
-* **JavaScript:** Manejo de eventos y validación dinámica de campos.
+* **CSS3:** Diseño responsivo (Media Queries), unidades relativas y control de contraste visual[cite: 10].
+* **JavaScript:** Manejo de eventos y validación dinámica de campos en tiempo real.
 
 ## Instrucciones para ejecutar el proyecto
 1. Clona este repositorio o descarga los archivos en tu computadora.
 2. Abre la carpeta del proyecto en tu editor de código (como Visual Studio Code).
-3. Abre el archivo principal `formulario.html` (o `index.html` según corresponda) directamente en tu navegador web preferido para probarlo localmente.
+3. Abre el archivo principal `formulario.html` directamente en tu navegador web preferido para probarlo localmente.
 
 ## Autor
 * **Nombre:** Arturo Sebastián Pérez Zapata[cite: 7]
