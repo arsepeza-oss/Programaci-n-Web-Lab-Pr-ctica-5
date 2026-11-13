@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
-    <!-- Enlace al archivo CSS externo requerido -->
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -12,32 +11,103 @@
     <main class="container">
         <h1>Contacto</h1>
         
-        <!-- Formulario sin tablas y con validaciones nativas -->
-        <form>
+        <!-- Formulario refactorizado con IDs y elementos semánticos -->
+        <form id="contactForm" novalidate>
             <div class="form-group">
                 <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" required>
+                <input type="text" id="nombre" name="nombre" required placeholder="Escribe tu nombre">
+                <span class="error-msg" id="error-nombre"></span>
             </div>
 
             <div class="form-group">
                 <label for="correo">Correo electrónico</label>
-                <input type="email" id="correo" name="correo" required>
+                <input type="email" id="correo" name="correo" required placeholder="ejemplo@correo.com">
+                <span class="error-msg" id="error-correo"></span>
             </div>
 
             <div class="form-group">
                 <label for="telefono">Teléfono</label>
-                <!-- Validación pattern para exactamente 10 dígitos -->
-                <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}" placeholder="10 dígitos" required>
+                <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}" maxlength="10" required placeholder="10 dígitos numéricos">
+                <span class="error-msg" id="error-telefono"></span>
             </div>
 
             <div class="form-group">
                 <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                <textarea id="mensaje" name="mensaje" rows="4" maxlength="250" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                <div class="textarea-footer">
+                    <span class="error-msg" id="error-mensaje"></span>
+                    <span id="contador">0 / 250</span>
+                </div>
             </div>
 
-            <button type="submit">Enviar</button>
+            <button type="submit" id="btnEnviar">Enviar</button>
         </form>
     </main>
 
+    <!-- Script de validación en tiempo real y contador -->
+    <script>
+        const form = document.getElementById('contactForm');
+        const nombre = document.getElementById('nombre');
+        const correo = document.getElementById('correo');
+        const telefono = document.getElementById('telefono');
+        const mensaje = document.getElementById('mensaje');
+        const contador = document.getElementById('contador');
+
+        // Función para validar un campo individualmente
+        function validarCampo(input, errorId, condicion, mensajeError) {
+            const errorSpan = document.getElementById(errorId);
+            if (condicion) {
+                input.classList.remove('invalid');
+                input.classList.add('valid');
+                errorSpan.textContent = '';
+                return true;
+            } else {
+                input.classList.remove('valid');
+                input.classList.add('invalid');
+                errorSpan.textContent = mensajeError;
+                return false;
+            }
+        }
+
+        // Validaciones en tiempo real (evento input)
+        nombre.addEventListener('input', () => {
+            validarCampo(nombre, 'error-nombre', nombre.value.trim() !== '', 'El nombre es obligatorio.');
+        });
+
+        correo.addEventListener('input', () => {
+            const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            validarCampo(correo, 'error-correo', regexCorreo.test(correo.value), 'Ingresa un correo válido (ej. usuario@domain.com).');
+        });
+
+        telefono.addEventListener('input', () => {
+            // Solo permite números y valida exactamente 10 dígitos
+            telefono.value = telefono.value.replace(/\D/g, '');
+            validarCampo(telefono, 'error-telefono', telefono.value.length === 10, 'Debe tener exactamente 10 dígitos.');
+        });
+
+        mensaje.addEventListener('input', () => {
+            const actual = mensaje.value.length;
+            contador.textContent = `${actual} / 250`;
+            validarCampo(mensaje, 'error-mensaje', actual > 0, 'El mensaje no puede estar vacío.');
+        });
+
+        // Prevenir envío si hay errores
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const esNombreValido = nombre.value.trim() !== '';
+            const esCorreoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.value);
+            const esTelValido = telefono.value.length === 10;
+            const esMensajeValido = mensaje.value.trim() !== '';
+
+            if (esNombreValido && esCorreoValido && esTelValido && esMensajeValido) {
+                alert('¡Formulario validado correctamente y listo para enviar!');
+                form.reset();
+                document.querySelectorAll('input, textarea').forEach(el => el.classList.remove('valid'));
+                contador.textContent = '0 / 250';
+            } else {
+                alert('Por favor, corrige los errores antes de enviar.');
+            }
+        });
+    </script>
 </body>
 </html>
